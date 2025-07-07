@@ -106,4 +106,18 @@ router.post("/login", async(request, response) => {
     }
 });
 
+router.post("/logout", async (request, response) => {
+    try {
+        response.clearCookie("authToken");
+
+        response.json({
+            message: "User logged out successfully!",
+        });
+    } catch (error) {
+        response.status(400).json({
+            message: "Unable to logout at the moment!!"
+        });
+    }
+});
+
 module.exports = router;
