@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const connectToDb = require("./db-config/config");
 const UserRouter = require("./routes/user-routes");
 const ProductRouter = require("./routes/product-routes");
+const CartRouter = require("./routes/cart-routes");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
  */
 app.use("/user", UserRouter);
 app.use("/products", ProductRouter);
+app.use("/cart", CartRouter);
 
 connectToDb().then(
     () => {
